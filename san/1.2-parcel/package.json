@@ -1,0 +1,20 @@
+{
+  "name": "1.2",
+  "version": "1.0.0",
+  "description": "- 了解最新的webpack4 / parcel\r - 学习如何使用构建工具搭建前端开发环境\r - 了解san框架\r # 任务描述\r 请根据学习资料及自己的理解，使用webpack4或parcel搭建一个开发环境，要求如下：",
+  "main": "index.js",
+  "scripts": {
+    "dev": "rd/s/q dist & parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build index.html -d build --public-url ./"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "san": "^3.5.7"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1"
+  }
+}
