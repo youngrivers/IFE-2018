@@ -1,0 +1,48 @@
+<template>
+<input type="button" value="添加" class="btn btn-primary">
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">姓名{{msg}}</th>
+            <th scope="col">审核状态</th>
+            <th scope="col">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>张三</th>
+            <th>合格</th>
+            <th><input type="button" value="删除" class="btn btn-primary"></th>
+        </tr>
+        <tr>
+            <th>李四</th>
+            <th>不合格</th>
+            <th><input type="button" value="删除" class="btn btn-primary"></th>
+        </tr>
+        <tr>
+            <th>王五</th>
+            <th>待审核</th>
+            <th><input type="button" value="审核" class="btn btn-primary"></th>
+        </tr>
+        <tr>
+            <th>赵六</th>
+            <th>待审核</th>
+            <th><input type="button" value="审核" class="btn btn-primary"></th>
+        </tr>
+        <tr>
+            <th>孙七</th>
+            <th>待审核</th>
+            <th><input type="button" value="审核" class="btn btn-primary"></th>
+        </tr>
+    </tbody>
+</table>
+</template>
+<script>
+    export default {
+        initData() {
+            return {
+                msg: 'world'
+            };
+        }
+    }
+</script>
