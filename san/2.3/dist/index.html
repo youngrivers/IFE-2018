@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #block {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .red {
+            background: red;
+        }
+        
+        .blue {
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://unpkg.com/san@latest/dist/san.dev.js"></script>
+    <script>
+        //import san from 'san';
+        var MyApp = san.defineComponent({
+            template: `<div id="block" class="{{isRed?'red ':'blue '}}" on-click="toggle"></div>`,
+            initData: function() {
+                return {
+                    isRed: true
+                }
+            },
+            toggle: function() {
+                //let is = this.data.get('isRed');
+                this.data.set('isRed', false);
+            }
+        });
+        var myApp = new MyApp();
+        myApp.attach(document.body);
+    </script>
+<script type="text/javascript" src="main.js"></script></body>
+
+</html>
