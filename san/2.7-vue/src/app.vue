@@ -15,10 +15,16 @@
       </transition>
     </div>
     <div>
-      <ul>
-        <li v-for="(item,index) in list" v-bind:key="item.id" v-on:click="toggle(index)">{{item.info}}</li>
+      <ul class="eList">
+        <li v-for="(item,index) in list" v-bind:key="item.id" v-on:click="toggle(item,index)">{{item.info}}:{{item.way}}</li>
       </ul>
-      <task></task>
+      <task 
+        v-for="(post,index) in list"
+        v-bind:key="post.id"
+        v-bind:title="post.info"
+        v-bind:num='index'
+        v-bind:way='post.way'
+        v-bind:tf="post.list_show"></task>
     </div>
   </div>
 </template>
@@ -29,24 +35,36 @@ import task from './components/task.vue'
       return{
         show:true,
         list:[{
-          info:'放大'
+          info:'放大',
+          way:'magnify',
+          list_show:false,
         },{
-          info:'旋转'
+          info:'旋转',
+          way:'rotate',
+          list_show:false,
         },{
-          info:'向上'
+          info:'向上',
+          way:'up',
+          list_show:false,
         },{
-          info:'翻转'
+          info:'翻转',
+          way:'overturn',
+          list_show:false,
         },{
-          info:'翻牌'
+          info:'翻牌',
+          way:'turnover',
+          list_show:false,
         },{
-          info:'缩小'
-        }]
+          info:'缩小',
+          way:'shrink',
+          list_show:false,
+        }],
       }
     },
     methods:{
-      toggle:function (index) {
+      toggle:function (item,index) {
         console.log(index);
-        
+        item.list_show=!item.list_show;
       }
     },
     components:{
@@ -85,5 +103,15 @@ import task from './components/task.vue'
   }100%{
     transform: scale(1);
   }
+}
+.eList{
+  list-style: none;
+  display: inline-block;
+}
+.eList li{
+  cursor: pointer;
+}
+.eList li:hover{
+  color: coral;
 }
 </style>
