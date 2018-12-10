@@ -22,7 +22,7 @@ module.exports = {
         new CleanWebpackPlugin(['dist']),
         //打包html文件
         new HtmlWebpackPlugin({
-            title: 'ouput management 2.7-vue',
+            title: 'ouput management 3.1-vue',
             template: './public/index.html',
             favicon: './public/favicon.ico',
         }),

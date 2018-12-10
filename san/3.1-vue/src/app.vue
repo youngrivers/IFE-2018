@@ -1,58 +1,77 @@
 <template>
   <div>
-    <button v-on:click='show=!show'>
-      Toggle
-    </button>
-    <transition name="fade">
-      <p v-if="show">hello</p>
-    </transition>
-    <transition name="slide-fade">
-      <p v-if="show">NMLS</p>
-    </transition>
-    <transition name=bounce>
-      <p v-if="show">bdjbvdksbvdshbvjsbvksvkdbhsvbdksbvkdsbvksdjk</p>
-    </transition>
+    <cascader 
+    v-bind:options="options"
+    v-model="selectedOptions"
+    v-on:change="handleChange"
+    >
+      <span>默认 click 触发子菜单</span>
+    </cascader>
   </div>
 </template>
 <script>
+import cascader from './components/CascaderComponent.vue'
   export default{
     data(){
       return{
         show:true,
-          }
+        options:[{
+          value: 'zhinan',
+          label: '指南',
+          children: [{
+            value: 'shejiyuanze',
+            label: '设计原则',
+            children: [{
+                value: 'yizhi',
+                label: '一致'
+            }, {
+                value: 'fankui',
+                label: '反馈'
+            }, {
+                value: 'xiaolv',
+                label: '效率'
+            }, {
+                value: 'kekong',
+                label: '可控'
+            }]
+          },{
+            value: 'daohang',
+            label: '导航',
+            children: [{
+              value: 'cexiangdaohang',
+              label: '侧向导航'
+            }, {
+              value: 'dingbudaohang',
+              label: '顶部导航'
+            }]
+          }]
+        },{
+          value: 'ziyuan',
+          label: '资源',
+          children: [{
+            value: 'axure',
+            label: 'Axure Components'
+          }, {
+            value: 'sketch',
+            label: 'Sketch Templates'
+          }, {
+            value: 'jiaohu',
+            label: '组件交互文档'
+          }]
+        }],
+        selectedOptions:[],
       }
+    },
+    components:{
+      cascader
+    },
+    methods:{
+      handleChange(value){
+        console.log(value);
+      }
+    }
   }
 </script>
 <style>
-.fade-enter-active, .fade-leave-active{
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to{
-  opacity: 0;
-}
-.slide-fade-enter-active{
-  transition: all 0.3s ease;
-}
-.slide-fade-leave-active{
-  transition: all .8s cubic-bezier(1, 0, 0, 1)
-}
-.slide-fade-enter, .slide-fade-leave-to{
-  transform: translateX(10px);
-  opacity: 0;
-}
-.bounce-enter-active{
-  animation: bounce-in .5s;
-}
-.bounce-leave-active{
-  animation: bounce-in .5s reverse;
-}
-@keyframes bounce-in {
-  0%{
-    transform: scale(0);
-  }50%{
-    transform: scale(1.5);
-  }100%{
-    transform: scale(1);
-  }
-}
+
 </style>
