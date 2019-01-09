@@ -6,7 +6,10 @@
     </div>
     <!-- 弹出 -->
     <div slot="popup">
-      <Calendar></Calendar>
+      <Calendar
+      :value="curDate"
+      @change="onChange"
+      ></Calendar>
     </div>
   </div>
 </template>
@@ -16,13 +19,18 @@ import Calendar from './Calendar.vue'
 export default {
   data() {
     return {
-      
+      curDate:new Date('2019-01-01')
     }
   },
   components:{
     VInput:input,
     Calendar:Calendar,
-  }
+  },
+  methods: {
+    onChange(dateStr, date){
+      console.log(arguments);
+    }
+  },
 }
 </script>
 <style>

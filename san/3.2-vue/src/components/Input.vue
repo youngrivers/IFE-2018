@@ -4,8 +4,7 @@
     type="text"
     value=""
     class="input-value">
-    <span
-    class="input-suffix">📅</span>
+    <span class="input-suffix">📅</span>
   </div>
 </template>
 <script>
