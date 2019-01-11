@@ -8,7 +8,6 @@
     position: relative;
     height: 40px;
     line-height: 40px;
-    display: flex;
     text-align: center;
     border-bottom: 1px solid #df2095;
 }
@@ -22,6 +21,7 @@
     padding: 0 5px;
     cursor: pointer;
     color: black;
+    margin: 10px 0;
 }
 
 .year-minus-btn:before,
@@ -52,11 +52,19 @@
     background-size: 100%, 100%;
 }
 
-.month-plus-btn {
-    float: right;
+.year-minus-btn {
+    float: left;
+}
+
+.month-minus-btn {
+    float: left;
 }
 
 .year-plus-btn {
+    float: right;
+}
+
+.month-plus-btn {
     float: right;
 }
 
@@ -78,11 +86,21 @@
     padding: 5px;
 }
 
+.calendar-table td {
+    cursor: pointer;
+    text-align: center;
+}
+
+.calendar-table td:hover {
+    background-color: #df2095;
+}
+
 .calendar-table td th {
     display: table-cell;
     vertical-align: inherit;
     border: 0;
-    text-align: center
+    text-align: center;
+    padding: 3px 0;
 }
 
 .calendar-col-header {
@@ -95,4 +113,8 @@
     display: block;
     width: 24px;
     height: 24px;
+}
+
+.calendar-table .selected {
+    background-color: blueviolet
 }

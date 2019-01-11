@@ -18,38 +18,17 @@
             </th>
           </tr>
         </thead>
-        <tbody><!-- 表内 -->
-          <tr role="row">
-            <td role="gridcell"  v-for="(item,index) in dadeList" v-bind:key="item.id" v-if="index<7">
-              <div :class="[prefixCls+'-data']">
+        <tbody ><!-- 表内 -->
+          <tr role="row" >
+            <td role="gridcell" v-for="(item,key) in dadeList" :key="key" @click="emitDate(key)" :class="{selected:isActive[key]}">
+              <div :class="[prefixCls+'-data']" v-if="key<7">
                 <span>{{item.day}}</span>
               </div>
             </td>
           </tr>
           <tr role="row">
-            <td role="gridcell"  v-for="(item,index) in dadeList" v-bind:key="item.id" v-if="6<index&&index<14">
-              <div :class="[prefixCls+'-data']">
-                <span>{{item.day}}</span>
-              </div>
-            </td>
-          </tr>
-          <tr role="row">
-            <td role="gridcell"  v-for="(item,index) in dadeList" v-bind:key="item.id" v-if="13<index&&index<21">
-              <div :class="[prefixCls+'-data']">
-                <span>{{item.day}}</span>
-              </div>
-            </td>
-          </tr>
-          <tr role="row">
-            <td role="gridcell"  v-for="(item,index) in dadeList" v-bind:key="item.id" v-if="20<index&&index<28">
-              <div :class="[prefixCls+'-data']">
-                <span>{{item.day}}</span>
-              </div>
-            </td>
-          </tr>
-          <tr role="row">
-            <td role="gridcell"  v-for="(item,index) in dadeList" v-bind:key="item.id" v-if="27<index&&index<35">
-              <div :class="[prefixCls+'-data']">
+            <td role="gridcell" v-for="(item,key) in dadeList" :key="key">
+              <div :class="[prefixCls+'-data']" v-if="27<key&&key<35">
                 <span>{{item.day}}</span>
               </div>
             </td>
@@ -78,6 +57,8 @@ export default {
       currentMonth:1,//当前月份
       currentWeek:1,
       currentDay:1,
+      isActive:[],//判断日期是否点击
+      selectedD:false,
     }
   },
   created() {
@@ -97,9 +78,9 @@ export default {
       //本周
       for (let i = this.currentWeek-1; i >=0; i--) {
         let d=new Date(str)
-        d.setDate(d.getDate()-i)
+        d.setDate(d.getDate()-i-1)
         let dayO={};
-        dayO.id=d.getDate();
+        dayO.day=d.getDate();
         this.dadeList.push(dayO);
       }
       //其它周
@@ -124,11 +105,20 @@ export default {
       return y+"-"+m+"-"+d
     },
     preYear(){
+      console.log('上年');
       this.currentYear=this.currentYear--;
     },
     preMonth(){
-
+      console.log('上月');
+      this.currentMonth=this.currentMonth--;
+    },
+    emitDate(key){
+      this.isActive.push(key);
+      this.isActive[key]=!this.selectedD;
     }
+  },
+  watch: {
+    
   },
 }
 </script>
