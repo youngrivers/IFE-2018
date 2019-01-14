@@ -11,6 +11,19 @@ export default {
   },
   data() {
     return {
+      fields:[]
+    }
+  },
+  methods: {
+    //重置form
+    resetFields(){
+      this.fields.forEach(field => {
+        field.resetField();
+      });
+    },
+    //验证函数
+    validate(){
+
     }
   },
 }

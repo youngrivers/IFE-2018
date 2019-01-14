@@ -13,6 +13,7 @@
   </div>
 </template>
 <script>
+import "../utils/FormItem.css"
 export default {
   props:{
     label:String,
@@ -32,21 +33,13 @@ export default {
     //验证函数
     validate(){
 
+    },
+    resetField(){
+
     }
   },
 }
 </script>
 <style scoped>
-.ui-form-wrap{
-  display: inline-block;
-  overflow: hidden;
-}
-.ui-form-wrap span{
-  color: red;
-}
-.ui-form-input{
-  position: relative;
-  display: block;
-  width: 66.7%;
-}
+
 </style>

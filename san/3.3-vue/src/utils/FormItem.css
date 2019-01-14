@@ -1,0 +1,14 @@
+.ui-form-wrap {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.ui-form-wrap span {
+    color: red;
+}
+
+.ui-form-input {
+    position: relative;
+    display: block;
+    width: 66.7%;
+}

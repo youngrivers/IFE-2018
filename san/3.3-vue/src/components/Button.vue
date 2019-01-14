@@ -6,18 +6,17 @@
 <script>
 export default {
   props:{
-
+    type:{
+      type: String,
+      default: 'default'
+    },
+    nativeType:{
+      type: String,
+      default: 'button'
+    }
   },
   data() {
     return {
-      type:{
-        type: String,
-        default: 'default'
-      },
-      nativeType:{
-        type: String,
-        default: 'button'
-      }
     }
   },
   methods: {
