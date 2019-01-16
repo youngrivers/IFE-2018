@@ -3,8 +3,8 @@
         <!-- <alertBox>发生一些错误。</alertBox> -->
         <h2>任务栏</h2>
         <taskWrapper v-bind:tasks="tasks">
-            <template slot-scope="task">
-            </template>
+            <!-- <template slot-scope="task">
+            </template> -->
         </taskWrapper>
     </div>
 </template>
