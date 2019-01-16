@@ -5,6 +5,7 @@
 </template>
 <script>
 import Todo from './components/Todo.vue'
+
 export default {
   data() {
     return {
@@ -12,7 +13,7 @@ export default {
     }
   },
   components:{
-    uiTodo:"Todo"
+    'uiTodo':Todo
   }
 }
 </script>
