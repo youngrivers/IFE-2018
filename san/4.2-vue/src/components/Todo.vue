@@ -65,7 +65,7 @@ var filters={
     })
   }
 }
-function onHashChange () {
+/* function onHashChange () {
   var visibility = window.location.hash.replace(/#\/?/, '')
   if (filters[visibility]) {
     this.data.visibility = visibility
@@ -73,7 +73,7 @@ function onHashChange () {
     window.location.hash = ''
     this.data.visibility = 'all'
   }
-}
+} */
 
 //window.addEventListener('hashchange',onHashChange)
 //onHashChange()
@@ -197,10 +197,10 @@ export default {
     },
     //✔todo
     selectTodo(index,todo){
-      console.log(todo.completed);
+      //console.log(todo.completed);
       console.log(this.todos[index].title);
       //return todo.completed=!todo.completed
-      return this.todos[index].completed=!todo.completed;
+      return todo.completed=!todo.completed;
     },
     //移除todo
     removeTodo(todo){

@@ -5,7 +5,6 @@
 </template>
 <script>
 import Todo from './components/Todo.vue'
-
 export default {
   data() {
     return {
