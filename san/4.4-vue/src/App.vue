@@ -1,10 +1,10 @@
 <template>
   <div>
-    <ui-todo></ui-todo>
+    <scroll></scroll>
   </div>
 </template>
 <script>
-import Todo from './components/Todo.vue'
+import InfiniteScroll from './components/InfiniteScroll.vue'
 export default {
   data() {
     return {
@@ -12,7 +12,7 @@ export default {
     }
   },
   components:{
-    'uiTodo':Todo
+    'scroll':InfiniteScroll
   }
 }
 </script>
