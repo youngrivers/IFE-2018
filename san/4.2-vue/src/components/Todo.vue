@@ -21,9 +21,9 @@
     <footer class="footer">
       <span class="todo-count"><strong>{{remaining}}</strong>item left</span>
       <ul class="filters">
-        <li><a href="#/all" :class="[visibility=='all'?'selected':null]">All</a></li>
-        <li><a href="#/active" :class="[visibility=='active'?'selected':null]">Active</a></li>
-        <li><a href="#/completed" :class="[visibility=='completed'?'selected':null]">Completed</a></li>
+        <li><a href="#/all" :class="[visibility=='all'?'selected':null]" @click="changeVisibility('all')">All</a></li>
+        <li><a href="#/active" :class="[visibility=='active'?'selected':null]" @click="changeVisibility('active')">Active</a></li>
+        <li><a href="#/completed" :class="[visibility=='completed'?'selected':null]" @click="changeVisibility('completed')">Completed</a></li>
       </ul>
       <button class="clear" @click="removeCompleted()">Clear completed</button>
     </footer>
@@ -73,10 +73,10 @@ var filters={
     window.location.hash = ''
     this.data.visibility = 'all'
   }
-} */
+} 
 
-//window.addEventListener('hashchange',onHashChange)
-//onHashChange()
+onHashChange()
+window.addEventListener('hashchange',onHashChange) */
 export default {
   data() {
     return {
@@ -89,7 +89,8 @@ export default {
   },
   //监控todos在本地储存的变化
   watch: {
-    todos:{
+    //深度监控
+    todos:{//监控list这个属性，当这个属性对应的值发生变化就会执行函数
       handler:function (todos) {
         todoStorage.save(todos)
       },
@@ -114,7 +115,7 @@ export default {
           todo.completed=value
         })
       }
-    }
+    },
   },
   //过滤
   filters:{
@@ -132,17 +133,6 @@ export default {
           completed:todo.completed
         })
       }); */
-    /* let that=this
-    var visibility=window.location.hash.replace(/#\/?/, '')
-      if (filters[visibility]) {
-        that.visibility=visibility  
-      }else{
-        window.location.hash=''
-        that.visibility='all'
-      }
-    console.log(visibility) */
-    //window.addEventListener('hashchange',onHashChange)
-    //onHashChange()
   },
   mounted() {
     //window.addEventListener('hashchange',onHashChange)
@@ -154,7 +144,6 @@ export default {
       /* for (const todo in this.todos) {
         if (this.todos.hasOwnProperty(todo)) {
           const element = this.todos[todo];
-          
         }
       } */
       if (this.remaining===0) {
@@ -225,6 +214,10 @@ export default {
     onHashChange() {
       //获取或设置页面的标签值
       
+    },
+    //visibility变化
+    changeVisibility(index){
+      this.visibility=index
     }
   },
 }
